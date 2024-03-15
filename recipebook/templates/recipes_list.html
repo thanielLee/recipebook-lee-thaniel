@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<h1>Recipe Book</h1>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+{% block heading %} Recipe List {%endblock%}
+{% block content %}
     <ul>
         {% for recipe in object_list %}
             <li><a href="{{recipe.get_absolute_url}}">{{recipe.name}}</li>
         {% endfor %}
-    </ul> 
-</body>
-</html>
+    </ul>
+{% endblock %}

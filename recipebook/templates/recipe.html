@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<h1>Recipe Book</h1>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <h2>{{object.name}}</h2>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Recipebook{% endblock %}
+{% block heading %} Recipe Detail: {{object.name}} {%endblock%}
+{% block content %}
+    Uploaded by: {{ object.author.name }}
     <ul>
         {% for ingredient in object.ingredients.all %}
             <li>{{ ingredient.ingredient.name }}, {{ ingredient.quantity }}</li>
         {% endfor %}
     </ul>
-
-    <a href="/ledger/recipes/list">Back to Recipe List</a>
-
-</body>
-</html>
+{% endblock %}
